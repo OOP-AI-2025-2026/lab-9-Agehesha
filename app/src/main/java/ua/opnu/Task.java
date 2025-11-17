@@ -4,6 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
@@ -194,7 +195,7 @@ public class Task {
         if (set == null) {
             return;
         }
-        var it = set.iterator();
+        Iterator<String> it = set.iterator();
         while (it.hasNext()) {
             String s = it.next();
             if (s != null && s.length() % 2 == 0) {
@@ -213,12 +214,12 @@ public class Task {
         return s1.size();
     }
 
-    public static boolean isUnique(Map<String, Integer> map) {
+    public static boolean isUnique(Map<String, String> map) {
         if (map == null) {
             return true;
         }
-        Set<Integer> seen = new HashSet<>();
-        for (Integer value : map.values()) {
+        Set<String> seen = new HashSet<>();
+        for (String value : map.values()) {
             if (!seen.add(value)) {
                 return false;
             }
@@ -226,16 +227,16 @@ public class Task {
         return true;
     }
 
-    public static Map<String, String> intersect(Map<String, String> m1, Map<String, String> m2) {
-        Map<String, String> result = new HashMap<>();
+    public static Map<String, Integer> intersect(Map<String, Integer> m1, Map<String, Integer> m2) {
+        Map<String, Integer> result = new HashMap<>();
         if (m1 == null || m2 == null) {
             return result;
         }
-        for (Map.Entry<String, String> entry : m1.entrySet()) {
+        for (Map.Entry<String, Integer> entry : m1.entrySet()) {
             String key = entry.getKey();
-            String value = entry.getValue();
+            Integer value = entry.getValue();
             if (m2.containsKey(key)) {
-                String otherValue = m2.get(key);
+                Integer otherValue = m2.get(key);
                 if (value == null ? otherValue == null : value.equals(otherValue)) {
                     result.put(key, value);
                 }
