@@ -150,7 +150,7 @@ public class Task {
 
         for (int i = 0; i < size; i++) {
             int value = q.remove();
-            if (value % 2 != 0) { // odd
+            if (value % 2 != 0) {
                 stack.push(value);
                 oddCount++;
             } else {
@@ -213,12 +213,12 @@ public class Task {
         return s1.size();
     }
 
-    public static boolean isUnique(Map<String, String> map) {
+    public static boolean isUnique(Map<String, Integer> map) {
         if (map == null) {
             return true;
         }
-        Set<String> seen = new HashSet<>();
-        for (String value : map.values()) {
+        Set<Integer> seen = new HashSet<>();
+        for (Integer value : map.values()) {
             if (!seen.add(value)) {
                 return false;
             }
@@ -284,7 +284,7 @@ public class Task {
             }
         }
 
-        if (first) { 
+        if (first) {
             throw new IllegalArgumentException("Map contains no non-null values");
         }
 
@@ -313,3 +313,4 @@ public class Task {
         return max;
     }
 }
+
